@@ -1,0 +1,13 @@
+image: maven:3.8.5-openjdk-17
+
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  script:
+    - mvn clean package -DskipTests  # Builds the project, skipping tests
+  artifacts:
+    paths:
+      - target/*.jar  # Makes the built JAR file available as an artifact
